@@ -1,29 +1,33 @@
 {
   "name": "Vue_Gulu",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/foreverwb/Vue_Gulu.git",
+  "private": true,
   "author": "foreverwb",
   "license": "MIT",
   "scripts": {
-    "start": "parcel --no-cache index.html",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-service": "^3.7.0",
     "@vue/component-compiler-utils": "^3.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-plugin-istanbul": "^5.1.4",
     "node-sass": "^4.12.0",
-    "parcel-bundler": "^1.12.3",
     "sass": "^1.19.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^0.14.11"
   },
-  "alias": {
-    "vue": "./node_modules/vue/dist/vue.common.js"
-  }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
