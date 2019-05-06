@@ -1,7 +1,11 @@
 <template>
   <div>
-    <ui-button>Default</ui-button>
     <ui-button icon="settings">Setting</ui-button>
+    <ui-button
+      :loading="loading"
+      @click="loading = !loading">
+      Click Loading
+    </ui-button>
   </div>
 </template>
 
@@ -12,6 +16,12 @@
     name: 'ButtonExample',
     components: {
       'ui-button': Button
+    },
+    data() {
+      return {
+        loading: false
+
+      };
     }
   };
 </script>

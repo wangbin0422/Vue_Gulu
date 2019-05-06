@@ -10,8 +10,12 @@
   };
 </script>
 
-<style scoped>
-.footer {
+<style lang="scss" scoped>
+  @import "../styles/var";
 
-}
+  .footer {
+    font-size: 12px;
+    text-align: center;
+    color: $color;
+  }
 </style>
