@@ -1,14 +1,18 @@
 <template>
-  <ui-button icon="settings">Default</ui-button>
+  <div>
+    <ButtonExample />
+    <LayoutExample />
+  </div>
 </template>
 
 <script>
-  import Button from './Button/Button';
-
+  import ButtonExample from './Button/Button.example';
+  import LayoutExample from './layout/Layout.example'
   export default {
     name: 'demo',
     components: {
-      'ui-button': Button
+      ButtonExample,
+      LayoutExample
     }
   };
 </script>
