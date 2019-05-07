@@ -10,6 +10,9 @@
           <li>
             <router-link to="/layout">Layout</router-link>
           </li>
+          <li>
+            <router-link to="/table">Table</router-link>
+          </li>
         </ul>
       </ui-sider>
       <ui-content class="ui-content">
@@ -33,6 +36,7 @@
   import Sider from './layout/Sider';
   import ButtonExample from './Button/Button.example';
   import LayoutExample from './layout/Layout.example';
+  import TableExample from './table/Table.example';
 
   export default {
     name: 'demo',
@@ -43,7 +47,8 @@
       'ui-content': Content,
       'ui-sider': Sider,
       ButtonExample,
-      LayoutExample
+      LayoutExample,
+      TableExample
     }
   };
 </script>
@@ -74,7 +79,7 @@
   }
 }
 .ui-content {
-  padding: 10px;
+  padding: 16px;
   height: calc(100vh - 60px);
 }
 .ui-footer {
