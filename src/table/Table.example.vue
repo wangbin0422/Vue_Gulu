@@ -1,21 +1,29 @@
 <template>
-  <ui-table
-      selected-items.sync=""
-      :checkable="true"
-      :data-source="dataSource"
-      :columns="columns"></ui-table>
+  <div>
+    <ui-table
+        selected-items.sync=""
+        :checkable="true"
+        :data-source="dataSource"
+        :columns="columns"></ui-table>
+    <ui-pager
+      :current-page.sync="currentPage"
+      :total-page="10"></ui-pager>
+
+  </div>
 </template>
 
 <script>
   import Table from './Table';
-
+  import Pager from '../Pager';
   export default {
     name: 'TableExample',
     components: {
-      'ui-table': Table
+      'ui-table': Table,
+      'ui-pager': Pager
     },
     data() {
       return {
+        currentPage: 1,
         selected: [],
         dataSource: [
           {
@@ -47,6 +55,9 @@
           },
         ]
       };
+    },
+    methods: {
+
     }
   };
 </script>
