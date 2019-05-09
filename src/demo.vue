@@ -5,7 +5,7 @@
       <ui-sider class="ui-sidebar">
         <ul>
           <li>
-            <router-link to="/button">Button</router-link>
+            <router-link to="/button" exact>Button</router-link>
           </li>
           <li>
             <router-link to="/layout">Layout</router-link>
@@ -21,11 +21,6 @@
     </ui-layout>
     <ui-footer>&copy; vue ui</ui-footer>
   </ui-layout>
-
-  <!--  <div>-->
-  <!--    <ButtonExample />-->
-  <!--    <LayoutExample />-->
-  <!--  </div>-->
 </template>
 
 <script>
@@ -49,7 +44,7 @@
       ButtonExample,
       LayoutExample,
       TableExample
-    }
+    },
   };
 </script>
 
@@ -72,9 +67,9 @@
   color: #7f8c8d;
   a {
     display: inline-block;
-   padding: 8px 0;
+    padding: 8px 0;
   }
-  .router-link-active {
+  .active {
     color: #42b983;
   }
 }

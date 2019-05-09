@@ -7,12 +7,14 @@ import TableExample from './table/Table.example';
 Vue.use(VueRouter);
 
 const routes = [
+  {path: '*', redirect: '/button'},
   {path: '/button', component: ButtonExample},
   {path: '/layout', component: LayoutExample},
   {path: '/table', component: TableExample}
 ];
 
 const router = new VueRouter({
+  linkActiveClass: 'active',
   routes
 });
 
