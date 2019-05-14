@@ -1,19 +1,34 @@
 <template>
   <div>
-    <p>{{selected &&selected[0] &&selected[0].name || '空'}}</p>
-    <p>{{selected &&selected[1] &&selected[1].name || '空'}}</p>
-    <p>{{selected &&selected[2] &&selected[2].name || '空'}}</p>
     <ui-cascader
-      popover-height="100px"
-      :source="source"
-      :selected="selected"
-      @update:selected="selected = $event"></ui-cascader>
-
+      popover-height="200px"
+      :source.sync="source"
+      :selected.sync="selected"
+      @update:source="onUpdateSource"
+      @update:selected="onUpdateSelected"
+      :load-data="loadData"></ui-cascader>
   </div>
 </template>
 
 <script>
   import Cascader from './Cascader';
+  import db from '../db';
+
+  function request(parentId = 0) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let result = db.filter(entry => entry.parent_id == parentId);
+        result.forEach(node => {
+          if (db.filter(item => item.parent_id === node.id).length > 0) {
+            node.isLeaf = false;
+          } else {
+            node.isLeaf = true;
+          }
+        });
+        resolve(result);
+      }, 300);
+    });
+  }
 
   export default {
     name: 'CascaderExample',
@@ -23,43 +38,27 @@
     data() {
       return {
         selected: [],
-        source: [
-          {
-          name: '浙江',
-          children: [
-            {
-              name: '杭州',
-              children: [
-                {name: '上城'},
-                {name: '下城'},
-                {name: '江干'},
-              ]
-            },
-            {
-              name: '嘉兴',
-              children: [
-                {name: '南湖'},
-                {name: '秀洲'},
-                {name: '嘉善'},
-              ]
-            },
-          ]
-        },
-        {
-          name: '福建',
-          children: [
-            {
-              name: '福州',
-              children: [
-                {name: '鼓楼'},
-                {name: '台江'},
-                {name: '仓山'},
-              ]
-            },
-          ]
-        }]
+        source: []
       };
     },
+    created() {
+      request(0).then(result => {
+        this.source = result;
+      });
+    },
+    methods: {
+      onUpdateSource() {
+
+      },
+      onUpdateSelected() {
+
+      },
+      loadData({id}, updateSource) {
+        request(id).then(result => {
+          updateSource(result);
+        });
+      }
+    }
   };
 </script>
 
