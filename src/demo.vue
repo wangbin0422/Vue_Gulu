@@ -13,6 +13,9 @@
           <li>
             <router-link to="/table">Table</router-link>
           </li>
+          <li>
+            <router-link to="/cascader">Cascader</router-link>
+          </li>
         </ul>
       </ui-sider>
       <ui-content class="ui-content">
@@ -41,9 +44,6 @@
       'ui-footer': Footer,
       'ui-content': Content,
       'ui-sider': Sider,
-      ButtonExample,
-      LayoutExample,
-      TableExample
     },
   };
 </script>
