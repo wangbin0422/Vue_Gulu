@@ -95,10 +95,10 @@
         }
       },
       close() {
-        this.popoverVisible = true;
+        this.popoverVisible = false;
       },
       open() {
-        this.popoverVisible = false;
+        this.popoverVisible = true;
       },
       toggle() {
         if (this.popoverVisible === true) {

@@ -16,13 +16,16 @@
           <li>
             <router-link to="/cascader">Cascader</router-link>
           </li>
+          <li>
+            <router-link to="/carousel">Carousel</router-link>
+          </li>
         </ul>
       </ui-sider>
       <ui-content class="ui-content">
         <router-view></router-view>
       </ui-content>
     </ui-layout>
-    <ui-footer>&copy; vue ui</ui-footer>
+    <ui-footer class="ui-footer">&copy; vue ui</ui-footer>
   </ui-layout>
 </template>
 

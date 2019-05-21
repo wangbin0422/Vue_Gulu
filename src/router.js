@@ -4,6 +4,7 @@ import ButtonExample from './Button/Button.example';
 import LayoutExample from './layout/Layout.example';
 import TableExample from './table/Table.example';
 import CascaderExample from './cascader/Cascader.example';
+import CarouselExample from './carousel/Carousel.example';
 
 Vue.use(VueRouter);
 
@@ -12,7 +13,8 @@ const routes = [
   {path: '/button', component: ButtonExample},
   {path: '/layout', component: LayoutExample},
   {path: '/table', component: TableExample},
-  {path: '/cascader', component: CascaderExample}
+  {path: '/cascader', component: CascaderExample},
+  {path: '/carousel', component: CarouselExample}
 ];
 
 const router = new VueRouter({
