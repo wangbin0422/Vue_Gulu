@@ -18,6 +18,7 @@
       </span>
       <span
           v-for="n in childrenLength"
+          :key="n"
           :class="{active: selectedIndex === n-1}"
           @click="select(n-1)">
         {{n}}
@@ -38,12 +39,16 @@
       'ui-icon': Icon
     },
     props: {
+      selected: {
+        type: String
+      },
       autoPlay: {
         type: Boolean,
         default: true
       },
-      selected: {
-        type: String
+      autoPlayDelay: {
+        type: Number,
+        default: 3000
       }
     },
     data() {
@@ -56,7 +61,7 @@
     },
     mounted() {
       this.updateChildren();
-      this.playAutomatically();
+      this.autoPlay && this.playAutomatically();
       this.childrenLength = this.items.length;
     },
     updated() {
@@ -120,12 +125,13 @@
       },
       playAutomatically() {
         if (this.timer) {return;}
-        let index = this.names.indexOf(this.getSelected());
         let run = () => {
+          let index = this.names.indexOf(this.getSelected());
           let newIndex = index + 1;
           this.select(newIndex);
-          this.timer = setTimeout(run, 2000);
+          // this.timer = setTimeout(run, this.autoPlayDelay);
         };
+        this.timer = setTimeout(run, this.autoPlayDelay);
       },
       select(newIndex) {
         this.lastSelectedIndex = this.selectedIndex;
