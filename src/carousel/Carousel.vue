@@ -13,19 +13,30 @@
       </div>
     </div>
     <div class="ui-slides-dots">
+      <span @click="onClickPrev">
+        <ui-icon name="left"></ui-icon>
+      </span>
       <span
           v-for="n in childrenLength"
           :class="{active: selectedIndex === n-1}"
           @click="select(n-1)">
         {{n}}
       </span>
+      <span @click="onClickNext">
+        <ui-icon name="right"></ui-icon>
+      </span>
     </div>
   </div>
 </template>
 
 <script>
+  import Icon from '../Icon';
+
   export default {
     name: 'Carousel',
+    components: {
+      'ui-icon': Icon
+    },
     props: {
       autoPlay: {
         type: Boolean,
@@ -46,7 +57,7 @@
     mounted() {
       this.updateChildren();
       this.playAutomatically();
-      this.childrenLength = this.$children.length;
+      this.childrenLength = this.items.length;
     },
     updated() {
       this.updateChildren();
@@ -57,7 +68,10 @@
         return idx === -1 ? 0 : idx;
       },
       names() {
-        return this.$children.map(entry => entry.name);
+        return this.items.map(entry => entry.name);
+      },
+      items() {
+        return this.$children.filter(entry => entry.$options.name === 'CarouselItem');
       }
     },
     methods: {
@@ -95,6 +109,12 @@
       onMouseLeave() {
         this.playAutomatically();
       },
+      onClickPrev() {
+        this.select(this.selectedIndex - 1);
+      },
+      onClickNext() {
+        this.select(this.selectedIndex + 1);
+      },
       pause() {
         window.clearTimeout(this.timer);
       },
@@ -118,20 +138,20 @@
         this.$emit('update:selected', this.names[newIndex]);
       },
       getSelected() {
-        let first = this.$children[0];
+        let first = this.items[0];
         return this.selected || first.name;
       },
       updateChildren() {
         let selected = this.getSelected();
-        this.$children.forEach(entry => {
+        this.items.forEach(entry => {
           let reverse = this.selectedIndex <= this.lastSelectedIndex;
-          if(this.timer) {
-            if (this.lastSelectedIndex === this.$children.length - 1 &&
+          if (this.timer) {
+            if (this.lastSelectedIndex === this.items.length - 1 &&
               this.selectedIndex === 0) {
               reverse = false;
             }
             if (this.lastSelectedIndex === 0 &&
-              this.selectedIndex === this.$children.length - 1) {
+              this.selectedIndex === this.items.length - 1) {
               reverse = true;
             }
           }
