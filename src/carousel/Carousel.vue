@@ -129,7 +129,7 @@
           let index = this.names.indexOf(this.getSelected());
           let newIndex = index + 1;
           this.select(newIndex);
-          // this.timer = setTimeout(run, this.autoPlayDelay);
+          this.timer = setTimeout(run, this.autoPlayDelay);
         };
         this.timer = setTimeout(run, this.autoPlayDelay);
       },
