@@ -19,6 +19,9 @@
           <li>
             <router-link to="/carousel">Carousel</router-link>
           </li>
+          <li>
+            <router-link to="/scroll">Scroll</router-link>
+          </li>
         </ul>
       </ui-sider>
       <ui-content class="ui-content">

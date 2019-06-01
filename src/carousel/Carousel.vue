@@ -1,11 +1,11 @@
 <template>
   <div
-      class="ui-slides"
-      @mouseenter="onMouseEnter"
-      @mouseleave="onMouseLeave"
-      @touchmove="onTouchMove"
-      @touchstart="onTouchStart"
-      @touchend="onTouchEnd"
+    class="ui-slides"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave"
+    @touchmove="onTouchMove"
+    @touchstart="onTouchStart"
+    @touchend="onTouchEnd"
   >
     <div class="ui-slides-window" ref="window">
       <div class="ui-slides-wrapper">
@@ -17,10 +17,10 @@
         <ui-icon name="left"></ui-icon>
       </span>
       <span
-          v-for="n in childrenLength"
-          :key="n"
-          :class="{active: selectedIndex === n-1}"
-          @click="select(n-1)">
+        v-for="n in childrenLength"
+        :key="n"
+        :class="{active: selectedIndex === n-1}"
+        @click="select(n-1)">
         {{n}}
       </span>
       <span @click="onClickNext">

@@ -32,6 +32,11 @@
       return {
         selected: undefined
       }
+    },
+    watch: {
+      selected(nv, ov) {
+        console.log(nv, ov)
+      }
     }
   };
 </script>
