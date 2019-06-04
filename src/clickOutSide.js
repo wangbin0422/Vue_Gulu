@@ -16,7 +16,7 @@ export default {
   }
 };
 
-let removeListener = () => {
+const removeListener = () => {
   document.removeEventListener('click', onClickDocument);
 };
 

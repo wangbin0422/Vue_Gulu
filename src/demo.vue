@@ -1,6 +1,7 @@
 <template>
   <ui-layout>
-    <ui-header class="ui-header">Vue UI</ui-header>
+    <ui-header class="ui-header">Vue UI
+    </ui-header>
     <ui-layout>
       <ui-sider class="ui-sidebar">
         <ul>
@@ -9,6 +10,9 @@
           </li>
           <li>
             <router-link to="/layout">Layout</router-link>
+          </li>
+          <li>
+            <router-link to="/nav">Nav</router-link>
           </li>
           <li>
             <router-link to="/table">Table</router-link>
@@ -56,37 +60,43 @@
 
 <style lang="scss" scoped>
   @import './styles/var';
-.ui-header {
-  height: 40px;
-  line-height: 24px;
-  background: #fff;
-  width: 100%;
-  box-shadow: 0 0 1px rgba(0,0,0,0.25);
-  padding: 10px 60px;
-  color: #42b983;
-  font-size: 1.2em;
-}
-.ui-sidebar {
-  min-width: 180px;
-  padding: 10px;
-  height: calc(100vh - 60px);
-  color: #7f8c8d;
-  a {
-    display: inline-block;
-    padding: 8px 0;
-  }
-  .active {
+
+  .ui-header {
+    height: 40px;
+    line-height: 24px;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+    padding: 10px 60px;
     color: #42b983;
+    font-size: 1.2em;
   }
-}
-.ui-content {
-  padding: 16px;
-  height: calc(100vh - 60px);
-}
-.ui-footer {
-  position: fixed;
-  bottom: 8px;
-  left: 0;
-  right: 0;
-}
+
+  .ui-sidebar {
+    min-width: 180px;
+    padding: 10px;
+    height: calc(100vh - 60px);
+    color: #7f8c8d;
+
+    a {
+      display: inline-block;
+      padding: 8px 0;
+    }
+
+    .active {
+      color: #42b983;
+    }
+  }
+
+  .ui-content {
+    padding: 16px;
+    height: calc(100vh - 60px);
+  }
+
+  .ui-footer {
+    position: fixed;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+  }
 </style>
